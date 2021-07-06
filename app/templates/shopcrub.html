@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+{{ wtf.quick_form(form) }}
+<!-- {{ itemtable|safe }} -->
+<table border="1">
+    <thead>
+        <tr style="text-align: right;">
+            <th>
+            </th>
+            <th>item</th>
+            <th>minprice</th>
+            <th>maxprice</th>
+            <th>shop</th>
+          </tr>
+    </thead>
+    <tbody>
+        {% for item in itemtable %}
+        <tr>
+            <th>
+                <img itemprop="image" src= {{ item["iurl"] }}>
+            </th>
+            <td>{{item["item"]}}</td>
+            <td>{{item["minprice"]}}</td>
+            <td>{{item["maxprice"]}}</td>
+            <td>{{item["shop"]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {% if not known %}
+    <p>Pleases to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+</div>
+{% endblock %}

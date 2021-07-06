@@ -1,0 +1,110 @@
+alembic==1.6.5
+appdirs==1.4.4
+arrow @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/10/61/7d/46b6ecb716937541222463ea8c972488b391612e44a529d01610101d5b/arrow-1.1.0-py3-none-any.whl
+atomicwrites==1.4.0
+attrs==21.2.0
+bcrypt==3.2.0
+beautifulsoup4 @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/c7/7b/7d/73210c2a7e79422f0b81adbc9c21363dceb14b8756c85f6e2a4e59f5f0/beautifulsoup4-4.9.3-py3-none-any.whl
+binaryornot @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/95/92/41/fd3c91087c73f1e5b0faf59f4c6e46725b680033e0a03b93780a22f266/binaryornot-0.4.4-py2.py3-none-any.whl
+black==21.5b1
+blinker==1.4
+certifi @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/79/92/c5/838163864ed78bc82f4098ecd2c6ad24e4a3fa48d4f399a195ef7dc6cf/certifi-2021.5.30-py2.py3-none-any.whl
+cffi==1.14.5
+chardet @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/ba/27/ce/cb0abb929d0d2cdca6e59ba2296a925c28ff44e2f8115e2a45ea07258d/chardet-4.0.0-py2.py3-none-any.whl
+click @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/28/35/8d/c7061b29051bddf7c04d3eb42c3bbfb543299c450d622fbdac893be9df/click-8.0.1-py3-none-any.whl
+colorama @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/21/30/c4/069a1ecb39563eea2aff3e6f1a5a40b83efde813a9b472b05ea510e238/colorama-0.4.4-py2.py3-none-any.whl
+cookiecutter @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/fa/7e/74/4fe0454b5825cc1780397980e0a17c366bf38b91cea5804bcfb4bf8bef/cookiecutter-1.7.3-py2.py3-none-any.whl
+cycler==0.10.0
+dataclasses==0.8
+dnspython==2.1.0
+dominate @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/c1/f7/3e/1c71de59c059002abfa165ed50837f5b65e1119ceed6aca5ce344fa98c/dominate-2.6.0-py2.py3-none-any.whl
+email-validator==1.1.2
+environs==9.3.2
+factory-boy==3.2.0
+fake-useragent==0.1.11
+Faker==8.5.1
+fancycompleter==0.9.1
+flake8==3.9.2
+flake8-blind-except==0.2.0
+flake8-debugger==4.0.0
+flake8-docstrings==1.6.0
+flake8-isort==4.0.0
+flake8-polyfill==1.0.2
+Flask @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/36/2c/8b/e5103c2cfb6b903329b9c67ce25bbcbd896dafc8130c3cf2f254647730/Flask-2.0.1-py3-none-any.whl
+Flask-Bcrypt==0.7.1
+Flask-Bootstrap @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/44/d4/79/ad507d54386b54cef180b4a4d70be71622ca960ab790fb25f4f1531624/Flask-Bootstrap-3.3.7.1.tar.gz
+Flask-Caching==1.10.1
+Flask-DebugToolbar==0.11.0
+Flask-Login==0.5.0
+Flask-Migrate==2.7.0
+Flask-Moment @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/0e/c2/ef/349d6610f81ede15cd49dda47fbfee77ab327a16191ec97c28b32cd569/Flask_Moment-0.11.0-py2.py3-none-any.whl
+Flask-SQLAlchemy==2.5.1
+Flask-Static-Digest==0.2.1
+Flask-WTF @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/4e/c8/bc/54bf0d80f3cfc8abdc0d197cabe901df9ec5501f04afcb0980e252fc4d/Flask_WTF-0.15.1-py2.py3-none-any.whl
+gevent==21.1.2
+greenlet==1.1.0
+gunicorn==20.1.0
+idna @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/2c/3b/19/c043ec59e59b0fdeb2f32270434005d5abbd64b845fe5d3cc5a0d81779/idna-2.10-py2.py3-none-any.whl
+importlib-metadata @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/89/89/5f/8e3c1af630c7e33407bc9b53d430f8f7e8cbfc3e9bbf531b7966123d8a/importlib_metadata-4.5.0-py3-none-any.whl
+iniconfig==1.1.1
+isort==5.8.0
+itsdangerous==2.0.1
+Jinja2 @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/15/e0/45/4948f4c740d57ad0493bc1b6cc00c452c7ffff357ae48306799a09a3b9/Jinja2-3.0.1-py3-none-any.whl
+jinja2-time @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/28/16/b0/f2d4d3e8d8efb7ae0cc3e88a77408569fed9a1777e420d45360f8bd4c1/jinja2_time-0.2.0-py2.py3-none-any.whl
+kiwisolver==1.3.1
+Mako==1.1.4
+MarkupSafe @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/d5/58/87/03ed8711a3577952fc2e72d75a9e6a3ca654ef68bf5169a270f0405496/MarkupSafe-2.0.1-cp36-cp36m-win_amd64.whl
+marshmallow==3.12.1
+matplotlib==3.3.4
+mccabe==0.6.1
+mypy-extensions==0.4.3
+mysql-connector-python @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/23/67/a1/cf5caf84fec9179b99f49c91188400dd12257acc544de7861c577c314d/mysql_connector_python-8.0.25-cp36-cp36m-win_amd64.whl
+mysqlclient @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/8b/13/f2/a30ae47e58a415620ead2230eb490a8cd324b7f26283a096b4c2b65905/mysqlclient-2.0.3-cp36-cp36m-win_amd64.whl
+packaging==20.9
+pandas==1.1.5
+pathspec==0.8.1
+pdbpp==0.10.2
+pep8-naming==0.11.1
+Pillow==8.2.0
+pluggy==0.13.1
+poyo @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/75/b5/80/05d6891afca008061bca18bd7ed73b375d387328b9c4d23b7697860bf5/poyo-0.5.0-py2.py3-none-any.whl
+protobuf @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/a9/85/6d/31ba08c1e88e0c969b0e751fdbdd8ffa93dcc4a5f8ab51e0f6d15153d2/protobuf-3.17.2-cp36-cp36m-win_amd64.whl
+psycopg2-binary==2.8.6
+py==1.10.0
+pycodestyle==2.7.0
+pycparser==2.20
+pydocstyle==6.1.1
+pyflakes==2.3.1
+Pygments==2.9.0
+pyparsing==2.4.7
+pyreadline==2.1
+pyrepl==0.9.0
+pytest==6.2.4
+python-dateutil @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/21/0f/2e/d0431e5b008e4e2b8cccfe0df2ffdc8f88c56dc4dd32fadc23a0602017/python_dateutil-2.8.1-py2.py3-none-any.whl
+python-dotenv==0.17.1
+python-editor==1.0.4
+python-slugify @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/39/96/98/52570b742f5b201aed54832a061240d5947d744ed5c83cc7c3d92f9f1e/python_slugify-5.0.2-py2.py3-none-any.whl
+pytz==2021.1
+regex==2021.4.4
+requests @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/cc/66/9e/45bdb6bfc10f81f224ab3a7090f56accd93a83bb9f7e706198340a41cf/requests-2.25.1-py2.py3-none-any.whl
+six @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/35/2c/d9/b456d499f884f0bea2387181b83b4e3f38dcf13e41bf80dbfa857740ef/six-1.16.0-py2.py3-none-any.whl
+snowballstemmer==2.1.0
+soupsieve @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/57/5e/69/0f4f089583242a142b2de3b72900ff6962cca6bf7583ad583f77338e16/soupsieve-2.2.1-py3-none-any.whl
+SQLAlchemy @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/38/53/df/cdbbc27b71d4ea08cc9157290dafa6ca63134cc0129f9863bdaa782629/SQLAlchemy-1.4.18-cp36-cp36m-win_amd64.whl
+supervisor==4.2.2
+testfixtures==6.17.1
+text-unidecode @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/c2/09/4e/adb7b6000d8621d4825788d112544bc747ed88d0cdfa543f26e4931a33/text_unidecode-1.3-py2.py3-none-any.whl
+toml==0.10.2
+typed-ast==1.4.3
+typing-extensions @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/9d/8b/f3/ef550b0451bc2caa3eeae22ac1acb6d0e7bf575c4f39215d8d659d3e38/typing_extensions-3.10.0.0-py3-none-any.whl
+urllib3 @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/ef/37/fd/4e449824584587cbb69493d19b6bedaf421fa7d29b58ba3949295e03a0/urllib3-1.26.5-py2.py3-none-any.whl
+visitor @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/ed/4c/17/277411c8cf0935c04582473913efae122d3d7a2fb459b8def19da7138a/visitor-0.1.3.tar.gz
+waitress==2.0.0
+WebOb==1.8.7
+WebTest==2.0.35
+Werkzeug @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/5d/7d/4a/d1a537466277266a1f1c40b9f28b39b488baaabbf60a3d50a74d08155a/Werkzeug-2.0.1-py3-none-any.whl
+wmctrl==0.4
+WTForms==2.3.3
+zipp @ file:///C:/Users/applejimmy/AppData/Local/pypoetry/Cache/artifacts/2d/7d/93/1d15ad2280ef22a5d638c717b63dd3f0ec0bbb450ee20ce3cacff45ab1/zipp-3.4.1-py3-none-any.whl
+zope.event==4.5.0
+zope.interface==5.4.0
