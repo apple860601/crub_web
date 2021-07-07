@@ -21,9 +21,9 @@
         {% for item in itemtable %}
         <tr>
             <th>
-                <img itemprop="image" src= {{ item["iurl"] }}>
+                <img itemprop="image" src= {{ item["iurl"] }} width="100" height="100">
             </th>
-            <td>{{item["item"]}}</td>
+            <td><a href={{item['url']}}>{{item["item"]}}</a></td>
             <td>{{item["minprice"]}}</td>
             <td>{{item["maxprice"]}}</td>
             <td>{{item["shop"]}}</td>

@@ -45,6 +45,12 @@ class shopee(crub):
         else:
             return None  
 
+    def get_imageid(self,item):
+        if item!=[]:
+            return item['item_basic']['image']
+        else:
+            return None
+
 class PChome(crub):
     basicURL="https://ecshweb.pchome.com.tw/search/v3.3/all/results?page=1&sort=sale/dc&sortParm=rnk"
     # limit=100
@@ -73,20 +79,23 @@ class PChome(crub):
 
     def get_price(self,item):
         if item!=[]:
-            return int(item['price'])
+            return item['price']
         else:
-            return None      
+            return None    
+
+    def get_imageid(self,item):
+        if item!=[]:
+            return item['picS']
+        else:
+            return None
 
 class ruten(crub):
-    basicURL='''
-    https://rtapi.ruten.com.tw/api/search/v3/index.php/core/prod?
-    type=direct&sort=rnk%2Fdc&offset=1&2628348&_callback=jsonpcb_CoreProd
-    '''
+    basicURL='''https://rtapi.ruten.com.tw/api/search/v3/index.php/core/prod?type=direct&sort=rnk%2Fdc&offset=1&2628348&_callback=jsonpcb_CoreProd'''
 
     productURL="https://rtapi.ruten.com.tw/api/prod/v2/index.php/prod?_callback=jsonpcb_Prod"
     # limit=100
     
-    def get_item(self,item,limit=100):
+    def get_item(self,item,limit=48):
         if item!=None:
             response=self.ses.get(self.basicURL+f'&q={item}&limit={limit}',
             headers=self.headers,
@@ -102,6 +111,7 @@ class ruten(crub):
             headers=self.headers,
             allow_redirects=False
             ).text
+            # print(self.productURL+f'&id={itemid}')
             return response
         else:
             return None
@@ -120,12 +130,18 @@ class ruten(crub):
 
     def get_min_price(self,item):
         if item!=[]:
-            return int(item[0]['PriceRange'][0])
+            return item[0]['PriceRange'][0]
         else:
             return None
 
     def get_max_price(self,item):
         if item!=[]:
-            return int(item[0]['PriceRange'][1])
+            return item[0]['PriceRange'][1]
+        else:
+            return None
+    
+    def get_imageid(self,item):
+        if item!=[]:
+            return item[0]['Image']
         else:
             return None

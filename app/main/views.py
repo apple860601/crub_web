@@ -56,7 +56,8 @@ def shopcrub():
                 "minprice":i.price.minprice,
                 "maxprice":i.price.maxprice,
                 "shop":i.shopname.shop,
-                "iurl":i.shopname.IURLform+i.imageurl})
+                "iurl":i.imageurl,
+                "url":i.itemurl})
 
         # print(pd.DataFrame(product))
         # itemtable=pd.DataFrame(product).to_html()

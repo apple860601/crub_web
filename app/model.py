@@ -56,19 +56,21 @@ class Itemname(db.Model):
     itemname=db.Column(db.String(150))
     shopid=db.Column(db.Integer,db.ForeignKey('Shop.id'))
     priceid=db.Column(db.String(100),db.ForeignKey('Price.itemid'))
-    imageurl=db.Column(db.String(100),unique=True)
+    imageurl=db.Column(db.String(100))
+    itemurl=db.Column(db.String(100))
     # item=db.relationship('Price',backref='itemnameId')
     # min_price=db.Column(db.Integer,db.ForeignKey('Price.id'))
     # maxprice=db.Column(db.Integer,db.ForeignKey('Price.maxprice'))
 
     # def __repr__(self):
     #     return str(self.itemname),str(self.shopname),str(self.price)
-    def __init__(self,itemid,itemname,shopname,price,imageurl) -> None:
+    def __init__(self,itemid,itemname,shopname,price,imageurl,itemurl) -> None:
         self.itemid=itemid
         self.itemname=itemname
         self.shopname=shopname
         self.price=price
         self.imageurl=imageurl
+        self.itemurl=itemurl
 
     def all(self):
         return self.itemname,self.shopid,self.priceid

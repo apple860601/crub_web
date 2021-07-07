@@ -1,6 +1,6 @@
 def work(itname):
     print("Crubing")
-    from . import PChome,ruten,shopee2
+    from .crub import PChomecrub,rutencrub,shopeecrub
     # import PChome
     # import ruten
     # import shopee2
@@ -19,11 +19,11 @@ def work(itname):
     # itname=str(input())
     start=time.time()
     print("shopee")
-    shopee2.shopeecrub(itname)
+    PChomecrub(itname)
     shopeetime=time.time()-start
-    PChome.PChomecrub(itname)
+    rutencrub(itname)
     PChometime=time.time()-start-shopeetime
-    ruten.retencrub(itname)
+    shopeecrub(itname)
     rutentime=time.time()-start-PChometime-shopeetime
     
     print("shopeetime: ",shopeetime)
