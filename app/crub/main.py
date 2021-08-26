@@ -18,7 +18,6 @@ def work(itname):
     # from ..model import db,Shop,Price,Itemname
     # itname=str(input())
     start=time.time()
-    print("shopee")
     PChomecrub(itname)
     shopeetime=time.time()-start
     rutencrub(itname)

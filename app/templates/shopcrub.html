@@ -4,17 +4,38 @@
 {% block title %}Flasky{% endblock %}
 
 {% block page_content %}
-{{ wtf.quick_form(form) }}
+
+<div class="col-md-4" style="width: 30%;">
+    <form method="POST" action>
+             {{form.hidden_tag()}}
+             <fieldset class="form-group">
+                {{form.name}}
+                {% for choice in form.shop %}
+                     <div class="form-check">
+                         {{ choice(class="form-check-input")}}
+                         {{ choice.label(class="form-check-label") }}
+                     </div>
+                 {% endfor %}
+                 <h5>價格區間</h5>
+                 {{form.minprice(style="width:40%")}} ~ {{form.maxprice(style="width:40%")}}
+             </fieldset>
+             <div class="form-group">
+                 {{ form.submit(class="btn btn-outline-info") }}
+             </div>
+    </form>
+ </div>
+
 <!-- {{ itemtable|safe }} -->
-<table border="1">
+
+<table border="1" id="myTable" style="width:70%">
     <thead>
         <tr style="text-align: right;">
             <th>
             </th>
-            <th>item</th>
-            <th>minprice</th>
-            <th>maxprice</th>
-            <th>shop</th>
+            <th>產品</th>
+            <th>價格</th>
+            <!-- <th>maxprice</th> -->
+            <th>商城</th>
           </tr>
     </thead>
     <tbody>
@@ -24,19 +45,23 @@
                 <img itemprop="image" src= {{ item["iurl"] }} width="100" height="100">
             </th>
             <td><a href={{item['url']}}>{{item["item"]}}</a></td>
-            <td>{{item["minprice"]}}</td>
+            {% if item["minprice"] != item["maxprice"] %}
+            <td>{{item["minprice"]}} ~ {{item["maxprice"]}}</td>
+            {% else %}
             <td>{{item["maxprice"]}}</td>
+            {% endif %}
             <td>{{item["shop"]}}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<div class="page-header">
-    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
-    {% if not known %}
-    <p>Pleases to meet you!</p>
-    {% else %}
-    <p>Happy to see you again!</p>
-    {% endif %}
-</div>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.5/css/theme.blue.min.css"></link>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.5/js/jquery.tablesorter.min.js"></script>
+<script>
+    $("#myTable").tablesorter({
+    theme: "blue",
+    widgets: ['zebra']
+    });
+</script>
 {% endblock %}

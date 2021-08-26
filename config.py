@@ -20,7 +20,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URI') or \
-        'mysql+pymysql://root:apple80558@localhost/flaskdb?charset=utf8mb4'
+        'mysql+cymysql://root:apple80558@localhost/flaskdb?charset=utf8mb4'
 
 class TestingConfig(Config):
     TESTING = True
