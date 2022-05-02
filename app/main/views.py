@@ -1,11 +1,13 @@
 from datetime import datetime
-from flask import render_template,session,redirect,url_for,flash,abort
+from os import error
+from flask import render_template,session,redirect,url_for,flash,abort,request,current_app
 from flask_login.utils import login_required,current_user
+from werkzeug.datastructures import RequestCacheControl
 from wtforms import fields
 from . import main
-from .forms import EditProfileAdminForm, IndexForm,ShopForm,EditProfileForm
+from .forms import EditProfileAdminForm, IndexForm,ShopForm,EditProfileForm,PostForm
 from .. import db
-from ..model import Itemname, Permission,Price,Shop,User,Role
+from ..model import Itemname, Permission, Post,Price,Shop,User,Role
 from ..crub.main import work
 import pandas as pd
 from sqlalchemy import and_
@@ -23,78 +25,29 @@ def for_admin_only():
 def for_moderate_only():
     return 'For comment Moderates'
 
-@main.route('/user/<username>')
-def user(username):
-    user=User.query.filter_by(username=username).first_or_404()
-    return render_template('user.html',user=user)
-
-
-
 @main.route('/', methods=['GET', 'POST'])
 def index():
     # name = None
-    form = IndexForm()
-    if form.validate_on_submit():
-        user=User.query.filter_by(username=form.name.data).first()
-        if user is None:
-            user=User(username=form.name.data)
-            db.session.add(user)
-            db.session.commit()
-            print(session)
-            session['known']=False
-        else:
-            print(session)
-            session['known']=True
-        session['name']=form.name.data
-        form.name.data=''
-        return redirect(url_for('main.index'))
-        # name = form.name.data
-        # form.name.data = ''
-    return render_template('index.html', form=form, name=session.get('name'),known=session.get('known',False))
+    form = PostForm()
+    if current_user.can(Permission.WRITE) and form.validate_on_submit():
+        post=Post(body=form.body.data,author=current_user._get_current_object())
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for(".index"))
+    posts=Post.query.order_by(Post.timestamp.desc()).all()
+    page=request.args.get('page',1,type=int)#取得當前頁數
+    pagination=Post.query.order_by(Post.timestamp.desc()).paginate(
+        page,per_page=current_app.config['FLASKY_POSTS_PER_PAGE'],error_out=False
+    )#將結果轉換成頁數
+    posts=pagination.items#取出頁數裡的物件(文章)
+    return render_template('index.html',form=form,posts=posts,pagination=pagination)
 
-@main.route('/shopcrub', methods=['GET', 'POST'])
-def shopcrub():
-    # name = None
-    # db.session.rollback()
-    db.create_all()
-    form = ShopForm()
-    itemnm=form.name.data
-    product=[]
-    if form.validate_on_submit():
-        work(itemnm)
-        # item=db.engine.execute(f"select * from mainlist where mainlist.name like '%%{itemnm}%%'").fetchall()
-        item=Itemname.query.join(Price).filter(
-                                    Price.maxprice < int(form.maxprice.data),
-                                    Price.minprice > int(form.minprice.data),
-                                    and_(Itemname.itemname.like(f"%{itemnm}%"),
-                                    Itemname.shopid.in_(form.shop.data))).all()
-        # print(item)
-        if item is None:           
-            # print(item)
-            session['known']=False
-        else:
-            session['known']=True
-        session['name']=form.name.data
-        form.name.data=''
 
-        for i in item:
-            product.append({
-                "item":i.itemname,
-                "minprice":i.price.minprice,
-                "maxprice":i.price.maxprice,
-                "shop":i.shopname.shop,
-                "iurl":i.imageurl,
-                "url":i.itemurl})
-
-        # print(pd.DataFrame(product))
-        # itemtable=pd.DataFrame(product).to_html()
-    else:
-        itemtable="抱歉，查無此商品"
-        # print(itemtable)
-    #     return redirect(url_for('index'))
-    #     # name = form.name.data
-    #     # form.name.data = ''
-    return render_template('shopcrub.html', form=form,itemtable=product, name=session.get('name'),known=session.get('known',False))
+@main.route('/user/<username>')
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = user.posts.order_by(Post.timestamp.desc()).all()
+    return render_template('user.html', user=user, posts=posts)
 
 @main.route('/edit-profile/<int:id>',methods=['GET','POST'])
 @login_required
@@ -139,3 +92,19 @@ def edit_profile():
     form.location.data=current_user.location
     form.about_me.data=current_user.about_me
     return render_template('edit_profile.html',form=form)
+
+@main.route('/edit-users',methods=['GET','POST'])
+@login_required
+@admin_required
+def edit_users_admin():
+    users=User.query.all()
+    return render_template("edit_users.html",users=users)
+
+@main.route('/delete-users/<int:username>',methods=['DELETE'])
+@login_required
+@admin_required
+def delete_users_admin(username):
+    user=User.query.filter_by(name=username)
+    db.session.delete(user)
+    db.session.commit()
+    return render_template("edit_users.html",users=user)

@@ -1,0 +1,38 @@
+{% macro pagination_widget(pagination,endpoint) %}
+    <ul class="pagination">
+        <!-- 設置前一頁的功能 -->
+        <li {% if not pagination.has_prev %} class="disabled" {% endif %}>
+            <a href="{% if not pagination.has_prev %}{{ url_for(endpoint,page=pagination.page-1
+                ,**kwargs) }}{% else %}#{% endif %}">
+            &laquo;
+        </a>
+        </li>
+    <!-- 設置頁數串列的功能 -->
+    {% for p in pagination.iter_pages(left_current=3,right_current=3) %}
+        <!-- 如果該頁在iter_pages設置的範圍裡 -->
+        {% if p %}
+            <!-- 如果該頁等於目前在的頁面，則設為active(會特別標示) -->
+            {% if p==pagination.page %}
+            <li class="active">
+                <!-- 在這裡會在url上新增page參數 -->
+                <a href="{{ url_for(endpoint,page=p,**kwargs) }}">{{p}}</a>
+            </li>
+            <!-- 否則不會標示 -->
+            {% else %}
+            <li>
+                <a href="{{ url_for(endpoint,page=p,**kwargs) }}">{{p}}</a>
+            </li>
+            {% endif %}
+        {% else %}
+        <!-- 如果該頁不在iter_pages設置的範圍裡，則顯示成..... -->
+        <li class="disabled"><a href="#">&hellip;</a></li>
+        {% endif %}
+    {% endfor %}
+    <!-- 設置下一頁的功能 -->
+    <li {% if not pagination.has_next %} class="disabled"{% endif %}>
+        <a href="{% if pagination.has_next %}{{url_for(endpoint,page=pagination.page+1,**kwargs)}}{%else%}#{% endif %}">
+            &raquo;
+        </a>
+    </li>
+    </ul>
+{% endmacro %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-
+{% import "_trace_product.html" as trace %}
 {% block title %}Flasky{% endblock %}
 
 {% block page_content %}
@@ -51,6 +51,19 @@
             <td>{{item["maxprice"]}}</td>
             {% endif %}
             <td>{{item["shop"]}}</td>
+            <td> 
+                {% if current_user.can(Permission.FOLLOW) %}
+                    {% if not current_user.is_tracing(item['id']) %}
+                        <a href="{{ url_for('.trace',product=item['id']) }}" class="btn btn-primary">
+                            追蹤商品
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('.untrace',product=item['id']) }}" class="btn btn-default">
+                            取消追蹤
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </tbody>

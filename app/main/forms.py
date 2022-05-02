@@ -6,6 +6,7 @@ from wtforms.fields.simple import TextAreaField
 from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError
 from wtforms.widgets.core import TextArea
 from ..model import Role,User
+from flask_pagedown.fields import PageDownField
 
 
 class MultiCheckboxField(SelectMultipleField):
@@ -40,10 +41,12 @@ class EditProfileAdminForm(FlaskForm):
         self.user=user
 
     def validate_email(self,field):
+        #確認輸入的email是否有被註冊過
         if field.data != self.user.email and User.query.filter_by(email=field.data).first():
             raise ValidationError('Email already registered')
     
     def validate_username(self,field):
+        #確認輸入的username是否有被註冊過
         if field.data != self.user.username and User.query.filter_by(username=field.data).first():
             raise ValidationError('Username already in use')
 
@@ -52,3 +55,8 @@ class EditProfileForm(FlaskForm):
     location=StringField('Location',validators=[Length(0,64)])
     about_me=TextAreaField('About me')
     submit=SubmitField('Submit')
+
+class PostForm(FlaskForm):
+    body=PageDownField("What's on your mind?",validators=[DataRequired()])
+    submit=SubmitField('Submit')
+

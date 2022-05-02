@@ -1,12 +1,29 @@
 import os
 import click
 from .app import create_app,db
-from .app.model import User,Role,Shop,Itemname,Price
+from .app.model import User,Role,Shop,Itemname,Price,Permission
 from flask_migrate import Migrate, migrate
 
 app=create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate=Migrate(app,db)
-# db.create_all()
+# shopee=Shop(shop="shopee",URLform="https://shopee.tw/product/",IURLform="https://cf.shopee.tw/file/")
+# PChome=Shop(shop="PChome",URLform="http://24h.pchome.com.tw/prod/",IURLform="https://e.ecimg.tw")
+# ruten=Shop(shop="ruten",URLform="https://goods.ruten.com.tw/item/show?",IURLform="https://img.ruten.com.tw/")
+# Administrator=Role(permissions=Permission.ADMIN,name="admin")
+# moderate=Role(permissions=Permission.MODERATE,name="moderate")
+# users=Role(permissions=Permission.WRITE,name="user")
+# db.session.add_all([shopee,PChome,ruten,Administrator,moderate,users])
+# db.session.commit()
+
+# admin=User(name=os.environ.get("ADMIN_NAME"),
+#         email=os.environ.get("FLASKY_ADMIN"),
+#         password=os.environ.get("ADMIN_PASSWORD"),
+#         location=os.environ.get("ADMIN_LOCATION"),
+#         confirm=True,
+#         role_id=Administrator
+#         )
+# db.session.add(admin)
+# db.session.commit()
 
 @app.shell_context_processor
 def make_shell_context():

@@ -1,0 +1,13 @@
+{% macro trace_func(product) %}
+    {% if current_user.can(Permission.FOLLOW) %}
+        {% if not current_user.is_following(product) %}
+            <a href="{{ url_for('.trace',product=product.itemid) }}" class="btn btn-primary">
+                追蹤商品
+            </a>
+        {% else %}
+            <a href="{{ url_for('.untrace',product=product.itemid) }}" class="btn btn-default">
+                取消追蹤
+            </a>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
